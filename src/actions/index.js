@@ -1,17 +1,17 @@
-export const voteAngular = () => {
-    return {
-        type: 'VOTE_ANGULAR'
-    }
-}
-
 export const voteReact = () => {
     return {
-        type: 'VOTE_REACT'
+      type: 'VOTE_REACT'
     }
-}
-
-export const voteVue = () => {
+  }
+  
+  export const voteAngular = () => {
     return {
-        type: 'VOTE_VUE'
+      type: 'VOTE_ANGULAR'
     }
-}
+  }
+  
+  export const voteVuejs = () => {
+    return {
+      type: 'VOTE_VUEJS'
+    }
+  }
