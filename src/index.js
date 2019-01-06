@@ -8,11 +8,10 @@ import './index.css';
 
 let store = createStore(myApp);
 
-function render () {
+function MyApp () {
   ReactDOM.render(
     <div className="container">
       <App store={store} />
-      <hr/>
       <Results store={store} />
     </div>
     ,
@@ -20,6 +19,6 @@ function render () {
   );
 }
 
-store.subscribe(render);
+store.subscribe(MyApp);
 
-render();
+MyApp();

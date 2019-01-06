@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { voteAngular, voteReact, voteVuejs } from './actions';
+import { voteLambo, voteFerrari, voteMaserati, votePorsche } from './actions';
 import './App.css';
 
 class App extends Component {
@@ -8,33 +8,40 @@ class App extends Component {
     this.store = this.props.store;
   }
 
-  handleVoteAngular = () => {
-    this.store.dispatch(voteAngular());
+  handleVoteLambo = () => {
+    this.store.dispatch(voteLambo());
   }
 
-  handleVoteReact = () => {
-    this.store.dispatch(voteReact());
+  handleVoteFerrari = () => {
+    this.store.dispatch(voteFerrari());
   }
 
-  handleVoteVuejs = () => {
-    this.store.dispatch(voteVuejs());
+  handleVoteMaserati = () => {
+    this.store.dispatch(voteMaserati());
+  }
+
+  handleVotePorsche = () => {
+    this.store.dispatch(votePorsche());
   }
 
   render() {
     return (
       <div>
-        <div className="jumbotron" style={{'textAlign': 'center'}}>
+        <hr style={{height:'2.5px', borderColor:'red'}} />
+        <div style={{'textAlign': 'center'}}>
         <br/>
-          <h2>What is your favorite front-end framework in 2017?</h2>
+          <h1 style={{color:'darkblue'}}>What's your favorite SuperCar Brand?</h1>
           <br/>
-          <hr />
+          <hr style={{height:'2.5px', borderColor:'red'}} />
           <br/>
-          <div className="row">
-              <img src="angular_logo.png" height="96" alt="Angular" style={{marginRight: '100px'}} onClick={this.handleVoteAngular}></img>
-              <img src="react_logo.png" height="96" alt="Angular" style={{marginRight: '100px'}} onClick={this.handleVoteReact}></img>
-              <img src="vuejs_logo.png" height="96" alt="Angular" onClick={this.handleVoteVuejs}></img>
+          <div>
+              <img src="lambo.png" height="150" alt="Angular"  onClick={this.handleVoteLambo}></img>
+              <img src="ferrari.png" height="150" alt="Angular"  onClick={this.handleVoteFerrari}></img>
+              <img src="porsche.png" height="150" alt="Angular"  onClick={this.handleVotePorsche}></img>
+              <img src="maserati.png" height="150" alt="Angular"  onClick={this.handleVoteMaserati}></img>
           </div>
           <br/>
+          <hr style={{height:'2.5px', borderColor:'red'}} />
         </div>
       </div>
     );

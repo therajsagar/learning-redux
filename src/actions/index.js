@@ -1,17 +1,24 @@
-export const voteReact = () => {
+export const voteLambo = () => {
     return {
-      type: 'VOTE_REACT'
+      type: 'LAMBO'
     }
   }
   
-  export const voteAngular = () => {
+  export const voteFerrari = () => {
     return {
-      type: 'VOTE_ANGULAR'
+      type: 'FERRARI'
     }
   }
   
-  export const voteVuejs = () => {
+  export const votePorsche = () => {
     return {
-      type: 'VOTE_VUEJS'
+      type: 'PORSCHE'
+    }
+  }
+
+
+  export const voteMaserati = () => {
+    return {
+      type: 'MASERATI'
     }
   }

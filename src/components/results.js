@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Results extends Component {
   constructor(props){
@@ -6,66 +6,57 @@ class Results extends Component {
     this.store = this.props.store;
   }
 
-  votesAngularInPercent() {
-    if (this.store.getState().angular) {
-      return (this.store.getState().angular / (this.store.getState().angular + this.store.getState().react + this.store.getState().vuejs)) * 100
+  porschePercent() {
+    if (this.store.getState().porsche) {
+      return (this.store.getState().porsche / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
     } else {
       return 0
     }
   }
 
-  votesReactInPercent() {
-    if (this.store.getState().react) {
-      return (this.store.getState().react / (this.store.getState().angular + this.store.getState().react + this.store.getState().vuejs)) * 100
+  lamboPercent() {
+    if (this.store.getState().lambo) {
+      return (this.store.getState().lambo / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
     } else {
       return 0
     }
   }
 
-  votesVuejsInPercent() {
-    if (this.store.getState().vuejs) {
-      return (this.store.getState().vuejs / (this.store.getState().angular + this.store.getState().react + this.store.getState().vuejs)) * 100
+  ferrariPercent() {
+    if (this.store.getState().ferrari) {
+      return (this.store.getState().ferrari / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
     } else {
       return 0
     }
   }
 
-  votesAngularInPercentStyle() {
-    return {
-      width: this.votesAngularInPercent()+'%'
+
+  maseratiPercent() {
+    if (this.store.getState().maserati) {
+      return (this.store.getState().maserati / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
+    } else {
+      return 0
     }
   }
 
-  votesReactInPercentStyle() {
-    return {
-      width: this.votesReactInPercent()+'%'
-    }
-  }
-
-  votesVuejsInPercentStyle() {
-    return {
-      width: this.votesVuejsInPercent()+'%'
-    }
-  }
 
   render() {
     return (
       <div>
-        <span className="label label-danger">Angular: {this.votesAngularInPercent().toFixed(2) + '%'}</span>
-        <div className="progress progress-striped active">
-          <div className="progress-bar progress-bar-danger" style={this.votesAngularInPercentStyle()}>
-          </div>
-        </div>
-        <span className="label label-info">React: {this.votesReactInPercent().toFixed(2) + '%'}</span>
-        <div className="progress progress-striped active">
-          <div className="progress-bar progress-bar-info" style={this.votesReactInPercentStyle()}>
-          </div>
-        </div>
-        <span className="label label-success">Vue.js: {this.votesVuejsInPercent().toFixed(2) + '%'}</span>
-        <div className="progress progress-striped active">
-          <div className="progress-bar progress-bar-success" style={this.votesVuejsInPercentStyle()}>
-          </div>
-        </div>
+        <h2 style={{marginLeft:'15%', textDecoration:'underline'}}> Poll Results:</h2>
+      <div style={{textAlign:'center'}}>
+        
+        <h3>LAMBHO  :  {this.lamboPercent().toFixed(2) + '%'}</h3>
+
+        <h3>FERRARI  :  {this.ferrariPercent().toFixed(2) + '%'}</h3>
+            
+        <h3>PORSCHE  :  {this.porschePercent().toFixed(2) + '%'}</h3>
+
+        <h3>MASERATI  :  {this.maseratiPercent().toFixed(2) + '%'}</h3>
+
+      </div>
+  <br/>
+  <hr style={{height:'2.5px', borderColor:'red'}} />
       </div>
     )
   }
