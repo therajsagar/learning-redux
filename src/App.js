@@ -1,30 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { voteLambo, voteFerrari, voteMaserati, votePorsche } from './actions';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.store = this.props.store;
+export default ({store}) =>   {
+ 
+
+  const handleVoteLambo = () => {
+    store.dispatch(voteLambo());
   }
 
-  handleVoteLambo = () => {
-    this.store.dispatch(voteLambo());
+  const handleVoteFerrari = () => {
+    store.dispatch(voteFerrari());
   }
 
-  handleVoteFerrari = () => {
-    this.store.dispatch(voteFerrari());
+  const handleVoteMaserati = () => {
+    store.dispatch(voteMaserati());
   }
 
-  handleVoteMaserati = () => {
-    this.store.dispatch(voteMaserati());
+  const handleVotePorsche = () => {
+    store.dispatch(votePorsche());
   }
 
-  handleVotePorsche = () => {
-    this.store.dispatch(votePorsche());
-  }
-
-  render() {
     return (
       <div>
         <hr style={{height:'2.5px', borderColor:'red'}} />
@@ -35,10 +31,10 @@ class App extends Component {
           <hr style={{height:'2.5px', borderColor:'red'}} />
           <br/>
           <div>
-              <img src="lambo.png" height="150" alt="Angular"  onClick={this.handleVoteLambo}></img>
-              <img src="ferrari.png" height="150" alt="Angular"  onClick={this.handleVoteFerrari}></img>
-              <img src="porsche.png" height="150" alt="Angular"  onClick={this.handleVotePorsche}></img>
-              <img src="maserati.png" height="150" alt="Angular"  onClick={this.handleVoteMaserati}></img>
+              <img src="lambo.png" height="150" alt="Angular"  onClick={handleVoteLambo} className='logo'></img>
+              <img src="ferrari.png" height="150" alt="Angular"  onClick={handleVoteFerrari} className='logo'></img>
+              <img src="porsche.png" height="150" alt="Angular"  onClick={handleVotePorsche} className='logo'></img>
+              <img src="maserati.png" height="150" alt="Angular"  onClick={handleVoteMaserati} className='logo'></img>
           </div>
           <br/>
           <hr style={{height:'2.5px', borderColor:'red'}} />
@@ -46,6 +42,3 @@ class App extends Component {
       </div>
     );
   }
-}
-
-export default App;

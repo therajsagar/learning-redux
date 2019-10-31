@@ -1,15 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { createStore } from 'redux';
 import App from './App';
 import Results from './components/results';
 import myApp from './reducers';
 import './index.css';
 
-let store = createStore(myApp);
+let store = createStore(myApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 function MyApp () {
-  ReactDOM.render(
+  render(
     <div className="container">
       <App store={store} />
       <Results store={store} />

@@ -22,3 +22,8 @@ App {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.logo:hover{
+  border: 2.5px solid red;
+  border-radius: 10px;
+}

@@ -1,65 +1,50 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Results extends Component {
-  constructor(props){
-    super(props);
-    this.store = this.props.store;
-  }
-
-  porschePercent() {
-    if (this.store.getState().porsche) {
-      return (this.store.getState().porsche / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
+export default ({store}) => {
+  function porschePercent() {
+    if (store.getState().porsche) {
+      return (store.getState().porsche / Object.values(store.getState()).reduce((a,b)=> a+b)) * 100
     } else {
       return 0
     }
   }
 
-  lamboPercent() {
-    if (this.store.getState().lambo) {
-      return (this.store.getState().lambo / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
+  function lamboPercent() {
+    if (store.getState().lambo) {
+      return (store.getState().lambo / Object.values(store.getState()).reduce((a,b)=> a+b)) * 100
     } else {
       return 0
     }
   }
 
-  ferrariPercent() {
-    if (this.store.getState().ferrari) {
-      return (this.store.getState().ferrari / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
-    } else {
-      return 0
-    }
-  }
-
-
-  maseratiPercent() {
-    if (this.store.getState().maserati) {
-      return (this.store.getState().maserati / Object.values(this.store.getState()).reduce((a,b)=> a+b)) * 100
+  function ferrariPercent() {
+    if (store.getState().ferrari) {
+      return (store.getState().ferrari / Object.values(store.getState()).reduce((a,b)=> a+b)) * 100
     } else {
       return 0
     }
   }
 
 
-  render() {
+  function maseratiPercent() {
+    if (store.getState().maserati) {
+      return (store.getState().maserati / Object.values(store.getState()).reduce((a,b)=> a+b)) * 100
+    } else {
+      return 0
+    }
+  }
+
     return (
-      <div>
+      <>
         <h2 style={{marginLeft:'15%', textDecoration:'underline'}}> Poll Results:</h2>
-      <div style={{textAlign:'center'}}>
-        
-        <h3>LAMBHO  :  {this.lamboPercent().toFixed(2) + '%'}</h3>
-
-        <h3>FERRARI  :  {this.ferrariPercent().toFixed(2) + '%'}</h3>
-            
-        <h3>PORSCHE  :  {this.porschePercent().toFixed(2) + '%'}</h3>
-
-        <h3>MASERATI  :  {this.maseratiPercent().toFixed(2) + '%'}</h3>
-
-      </div>
-  <br/>
-  <hr style={{height:'2.5px', borderColor:'red'}} />
-      </div>
+        <div style={{textAlign:'center'}}>
+          <h3>LAMBHO  :  {lamboPercent().toFixed(2) + '%'}</h3>
+          <h3>FERRARI  :  {ferrariPercent().toFixed(2) + '%'}</h3>
+          <h3>PORSCHE  :  {porschePercent().toFixed(2) + '%'}</h3>
+          <h3>MASERATI  :  {maseratiPercent().toFixed(2) + '%'}</h3>
+        </div>
+        <br/>
+        <hr style={{height:'2.5px', borderColor:'red'}} />
+      </>
     )
   }
-}
-
-export default Results;
